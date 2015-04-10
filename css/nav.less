@@ -1,0 +1,53 @@
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5em;
+  z-index: 100;
+  background: @white;
+
+  section {
+    position: absolute;
+    top: 0; left: 0;
+    padding: @site-padding;
+
+    &:last-child {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  #main-logo-navigation {
+
+    h1 {
+      font-size: 1.4em;
+      display: inline-block;
+      margin-right: 0.5em;
+    }
+
+    ul {
+      display: inline-block;
+      li {
+        display: inline-block;
+        margin-right: 0.5em;
+        .light;
+        font-size: 1em;
+        .medium;
+        color: fadeout(@black, 60%);
+
+        &:not(:last-child){
+          &:after {
+            content: "/";
+            color: fadeout(@black, 75%);
+            margin-left: 0.5em;
+          }
+        }
+      }
+    }
+  }
+
+  #sub-about-navigation {
+
+  }
+}

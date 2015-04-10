@@ -1,0 +1,98 @@
+#projects {
+
+}
+
+ul#project-thumbs {
+
+  position: relative;
+  .clearfix;
+
+  img {
+    width: 100%;
+  }
+
+  li {
+    .mixin-column-layout();
+
+    a {
+      height: 48em;
+      padding: 35em 1em 0 1em;
+      display: block;
+    }
+
+    .image {
+      height: 37em;
+      z-index: -1;
+    }
+
+    .meta {
+      position: absolute;
+      bottom: 0; left: 1em;
+      span {
+        display: block;
+      }
+    }
+
+  }
+
+}
+
+.mixin-column-layout(){
+
+  position: relative;
+  width: 100%;
+  float: none;
+  margin-bottom: 4em;
+
+  .image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: none;
+    width: 100%;
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  @media @mq-biggish {
+    float: left;
+
+    @1-col: 4.16%;
+
+    &:nth-child(9n + 1){
+      width: 62.5%;
+      margin-right: @1-col;
+    }
+
+    &:nth-child(9n + 2){
+      width: 33.33%;
+    }
+
+    &:nth-child(9n + 3){
+      width: 45.833%;
+      margin-right: @1-col;
+    }
+
+    &:nth-child(9n + 4){
+      width: 50%;
+    }
+
+    &:nth-child(9n + 5), &:nth-child(9n + 6){
+      width: 29.16%;
+      margin-right: @1-col;
+    }
+
+    &:nth-child(9n + 7){
+      width: 33.33%;
+    }
+
+    &:nth-child(9n + 8){
+      width: 41.66%;
+      margin-right: @1-col;
+    }
+
+    &:nth-child(9n + 9){
+      width: 54.16%;
+    }
+  }
+
+}
