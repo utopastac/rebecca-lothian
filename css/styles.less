@@ -52,17 +52,19 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  overflow-y: scroll;
   width: 100%;
   height: 100%;
   background: fadeout(@white, 2%);
   z-index: 1000;
+  
 }
 
 #overlay-close {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0px;
+  right: 0px;
+  bottom: auto;
+  left: auto;
   text-align: center;
   line-height: 5em;
   width: 5em;
@@ -73,16 +75,21 @@ body {
 }
 
 #overlay-content {
-
+  .scrollable;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .internal {
 }
 
 #main-content {
-  header {
-    padding: 3em 1.5em;
-  }
+  padding: 5em 1.5em;
+  max-width: 65em;
+  margin: 0 auto;
 }
 
 
