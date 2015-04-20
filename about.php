@@ -12,13 +12,15 @@ Template Name: Profile
 
 			<header>
 				<h1>About</h1>
-				<h3><?php echo get_the_excerpt(); ?></h3>
+				<h3><?php echo get_bloginfo ( 'description' );  ?></h3>
 			</header>
 
-			<?php the_content(); ?>
+			<div class = "content">
+				<?php the_content(); ?>
+			</div>
 	    
 			
-			<?php endwhile; endif; wp_reset_query(); ?>
+			<?php endwhile; endif; ?>
 			
 			
 		</article>

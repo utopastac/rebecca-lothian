@@ -1,7 +1,20 @@
 #project {
 
   header {
-    padding-bottom:3em;
+    padding: 0 1.5em 3em 1.5em;
+  }
+
+  .content {
+
+    p {
+      max-width: 37em;
+      padding: 0 1.5em;
+      margin: 0 auto 1.5em auto;
+    }
+    img {
+      width: 100%;
+      margin-bottom: 2em;
+    }
   }
 
   aside {
@@ -30,9 +43,10 @@ ul#project-images {
 
   li {
     .mixin-column-layout();
-    background-size: cover;
+    background-size: contain;
+    //background-size: 100% auto;
     background-position: center center;
-    background-repeat: none;
+    background-repeat: no-repeat;
     height: 30em;
   }
 

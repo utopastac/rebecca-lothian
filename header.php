@@ -8,8 +8,8 @@
 		<meta name="robots" content="index,follow"/>
 		<meta name="description" content="Rebecca Lothian Fashion Print and Pattern Design portfolio"/>
 		<meta name="keywords" content="Pattern Designer, patterns, childrenswear, womenswear, fashion" />
-    <meta name="viewport" content="width=570">
-    
+    <meta name="viewport" content="width=device-width">
+
 		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_url'); ?>/styles.css"></link>
         

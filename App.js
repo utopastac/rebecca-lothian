@@ -18,9 +18,12 @@ function App(args) {
     
     $.useCssAnim = Modernizr.csstransforms3d;
 
+    document.addEventListener("touchstart", function(){}, true);
+
     this.overlayOpen = false;
     this.overlay = $("#overlay");
-    this.overlayClose = $("#overlay-close", this.overlay);
+    this.overlayClose = $("#overlay-close");
+    this.overlayBg = $("#overlay-bg", this.overlay);
     this.overlayContentContainer = $("#overlay-content", this.overlay);
     
     this.init(args);
@@ -37,14 +40,16 @@ App.prototype = {
         //$.window.on('statechange',jQuery.proxy(this, "goToPage"));
         $.History.Adapter.bind(window,'statechange',jQuery.proxy(this, "goToPage"));
         
-        $(".internal").on("tap", jQuery.proxy(this, "linkClicked"));
+        $(".internal").on("click", jQuery.proxy(this, "linkClicked"));
         this.overlayClose.on("tap", jQuery.proxy(this, "backToHome"));
+        this.overlayBg.on("tap", jQuery.proxy(this, "backToHome"));
     },
 
     setupElements:function(){
         //this.addHomeHistory();
         this.goToPage();
         TweenMax.set(this.overlay, {autoAlpha:0, display:"none"});
+        TweenMax.set(this.overlayClose, {y:-85});
     },
 
     linkClicked: function(event){
@@ -79,13 +84,14 @@ App.prototype = {
     },
 
     contentLoaded: function(event){
-        TweenMax.to(this.overlayContentContainer, 0.5, {alpha:1, ease: Power2.easeOut});
+        this.overlay.removeClass("loading");
+        TweenMax.to(this.overlayContentContainer, 0.7, {alpha:1, ease: Power2.easeOut});
     },
 
     openOverlay: function(event){
-        this.windowScroll = $.window.scrollTop();
-        $.body.css('top', -this.windowScroll + 'px').addClass("inActive");
-        TweenMax.to(this.overlay, 0.4, {autoAlpha:1, display:"block", onStart: jQuery.proxy(this, "overlayOpening")});
+        
+        TweenMax.to(this.overlay, 0.4, {autoAlpha:1, display:"block", onStart: jQuery.proxy(this, "overlayOpening"), onComplete: jQuery.proxy(this, "overlayOpened")});
+        TweenMax.to(this.overlayClose, 0.5, {y:0, delay: 0.5, ease: Power3.easeOut});
     },
 
     overlayOpening: function(event){
@@ -93,13 +99,22 @@ App.prototype = {
     },
 
     closeOverlay: function(event){
+        $.body.removeClass("inActive");
+        $.window.scrollTop(this.windowScroll);
         TweenMax.to(this.overlay, 0.4, {autoAlpha:0, display:"none", onComplete: jQuery.proxy(this, "overlayClosed")});
+        TweenMax.to(this.overlayClose, 0.55, {y:-85, ease: Power3.easeInOut});
+    },
+
+    overlayOpened: function(event){
+        this.overlay.addClass("loading");
+        this.windowScroll = $.window.scrollTop();
+        $.body.css('top', -this.windowScroll + 'px').addClass("inActive");
+        
     },
 
     overlayClosed: function(event){
         
-        $.body.removeClass("inActive");
-        $.window.scrollTop(this.windowScroll);
+        
     },
 
     backToHome: function(){

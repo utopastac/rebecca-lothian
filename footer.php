@@ -9,12 +9,15 @@
   </footer>
 
   <section id = "overlay">
+    
     <div id = "overlay-content">
     </div>
-    <div id = "overlay-close">
-      close
-    </div>
+    
   </section>
+  
+  <div id = "overlay-close">
+    - back
+  </div>
   
   </body>
 </html>
