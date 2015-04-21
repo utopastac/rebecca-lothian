@@ -16,7 +16,7 @@
           </div>
         </div>
       </header>
-      <ul id = "project-images">
+      <ul id = "project-images" class = "<?php $category = get_the_category(); echo $category[0]->cat_name; ?>">
         <?php
           display_images_in_list("<li style = 'background-image: url(", ")' /></li>");
         ?>

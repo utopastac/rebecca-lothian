@@ -43,11 +43,20 @@ ul#project-images {
 
   li {
     .mixin-column-layout();
-    background-size: contain;
+    background-size: cover;
     //background-size: 100% auto;
     background-position: center center;
     background-repeat: no-repeat;
     height: 30em;
+    cursor: pointer;
+    border: 1px solid @bg-col;
+    .animate(0.17s);
   }
+
+  /*&.Prints {
+    li {
+      background-size: cover;
+    }
+  }*/
 
 }

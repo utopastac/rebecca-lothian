@@ -24,6 +24,7 @@ function App(args) {
     this.overlay = $("#overlay");
     this.overlayClose = $("#overlay-close");
     this.overlayBg = $("#overlay-bg", this.overlay);
+    this.topOverlay = $("#top-overlay");
     this.overlayContentContainer = $("#overlay-content", this.overlay);
     
     this.init(args);
@@ -43,12 +44,14 @@ App.prototype = {
         $(".internal").on("click", jQuery.proxy(this, "linkClicked"));
         this.overlayClose.on("tap", jQuery.proxy(this, "backToHome"));
         this.overlayBg.on("tap", jQuery.proxy(this, "backToHome"));
+        this.topOverlay.on("tap", jQuery.proxy(this, "closeTopOverlay"))
     },
 
     setupElements:function(){
         //this.addHomeHistory();
         this.goToPage();
         TweenMax.set(this.overlay, {autoAlpha:0, display:"none"});
+        TweenMax.set(this.topOverlay, {autoAlpha:0, display:"none"});
         TweenMax.set(this.overlayClose, {y:-85});
     },
 
@@ -86,6 +89,19 @@ App.prototype = {
     contentLoaded: function(event){
         this.overlay.removeClass("loading");
         TweenMax.to(this.overlayContentContainer, 0.7, {alpha:1, ease: Power2.easeOut});
+        $("#project-images li").on("tap", jQuery.proxy(this, "openImageLarge"));
+    },
+
+    openImageLarge: function(event){
+        var elem = $(event.currentTarget);
+        var bg = elem.css('background-image');
+        bg = bg.replace('url(','').replace(')','');
+        this.topOverlay.css("background-image", "url(" + bg + ")");
+        TweenMax.to(this.topOverlay, 0.4, {autoAlpha:1, display:"block"});
+    },
+
+    closeTopOverlay: function(event){
+        TweenMax.to(this.topOverlay, 0.4, {autoAlpha:0, display:"none"});
     },
 
     openOverlay: function(event){
