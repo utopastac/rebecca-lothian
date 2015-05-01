@@ -9,7 +9,7 @@
         <h1><?php the_title(); ?></h1>
         <h3><?php the_content(); ?></h3>
         <aside>
-          <h4><?php echo get_the_date(); ?></h4>
+          <h4><?php echo get_the_modified_date(); ?></h4>
           <div class = "meta">
             <?php echo get_the_category_list(""); ?>
             <?php echo get_the_tag_list('<ul><li>','</li><li>','</li></ul>'); ?>

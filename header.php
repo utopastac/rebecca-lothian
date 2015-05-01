@@ -60,9 +60,9 @@
       <section id = "main-logo-navigation">
         <h1><a href="<?php echo home_url('/'); ?>">Rebecca Lothian</a></h1>
         <ul>
-          <li>Childrenswear</li>
-          <li>Illustration</li>
-          <li>Pattern</li>
+          <li><a href="<?php echo get_category_link(7); ?>">Childrenswear</a></li>
+          <li><a href="<?php echo get_category_link(21); ?>">Illustration</a></li>
+          <li><a href="<?php echo get_category_link(12); ?>">Prints</a></li>
         </ul>
       </section>
       <section id = "sub-about-navigation">

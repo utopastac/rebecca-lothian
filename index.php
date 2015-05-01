@@ -6,7 +6,9 @@
     <?php
         $args = array(
             'post_type' => 'portfolio',
-            'posts_per_page' => 30
+            'posts_per_page' => 30,
+            'orderby'=> 'modified',
+            'order' => 'ASC'
         );
         $posts = new WP_Query($args );
         
@@ -22,7 +24,7 @@
         <h2><?php echo the_title(); ?></h2>
         <div class = "meta">
           <h5><span>In</span> <?php $category = get_the_category(); echo $category[0]->cat_name; ?></h5>
-          <p><?php echo get_the_date(); ?></p>
+          <p><?php echo get_the_modified_date(); ?></p>
         </div>
       </a>
 

@@ -89,15 +89,15 @@ function create_post_type() {
   $args = array(
     'labels' => $labels,
     'public' => true,
-    /*'publicly_queryable' => true,
+    'publicly_queryable' => true,
     'show_ui' => true,
-    'query_var' => true,*/
+    'query_var' => true,
     'rewrite' => array('slug' => 'portfolio'),
-    /*'capability_type' => 'post',*/
+    'capability_type' => 'post',
     'hierarchical' => true,
     'menu_position' => 4,
     'supports' => array( 'title', 'editor', 'comments', 'excerpt', 'custom-fields', 'thumbnail', 'tags' ),
-        'taxonomies' => array('post_tag', 'category')
+    'taxonomies' => array('post_tag', 'category')
   );
     
   register_post_type('portfolio', $args);

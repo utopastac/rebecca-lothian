@@ -6,7 +6,19 @@
 
     <ul id = "project-thumbs">
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php
+
+      $cur_cat_id = get_cat_id( single_cat_title("",false) );
+
+      $loop = new WP_Query( array( 
+          'post_type' => 'Portfolio', 
+          'cat' => $cur_cat_id,
+          'posts_per_page' => 10
+      ) );
+
+      while ( $loop->have_posts() ) : $loop->the_post();
+
+    ?>
 
     <li>
 
@@ -22,7 +34,7 @@
 
     </li>
 
-    <?php endwhile; endif; ?>
+    <?php endwhile; ?>
 
     </ul>
   </section>
