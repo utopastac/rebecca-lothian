@@ -15,21 +15,21 @@ ul#project-thumbs {
     .mixin-column-layout();
 
     a {
-      height: 43em;
-      padding: 30em 1em 0 1em;
+      height: 37em;
+      padding: 26em 1em 0 0em;
       display: block;
     }
 
     .image {
       .animate(0.17s);
       border: 1px solid fadeout(@bg-col, 95%);
-      height: 32em;
+      height: 25em;
       z-index: -1;
     }
 
     .meta {
       position: absolute;
-      bottom: 0; left: 1em;
+      bottom: 0; left: 0em;
     }
 
   }
@@ -41,7 +41,7 @@ ul#project-thumbs {
   position: relative;
   width: 100%;
   float: none;
-  margin-bottom: 4em;
+  margin-bottom: 1em;
 
   .image {
     background-color: @bg-col;
@@ -58,8 +58,14 @@ ul#project-thumbs {
   @media @mq-biggish {
 
     float: left;
+    width: 48%;
+    margin-right: 4%;
 
-    &:nth-child(4n + 1){
+    &:nth-child(2n){
+      margin-right: 0%;
+    }
+
+    /*&:nth-child(4n + 1){
       width: 50%;
       margin-right: @1-col;
     }
@@ -75,12 +81,24 @@ ul#project-thumbs {
 
     &:nth-child(4n + 4){
       width: 50%;
-    }
+    }*/
   }
 
   @media @mq-large {
 
-    &:nth-child(9n + 1){
+    width: 32%;
+
+    margin-right: 2%;
+
+    &:nth-child(2n){
+      margin-right: 2%;
+    }
+
+    &:nth-child(3n){
+      margin-right: 0;
+    }
+
+    /*&:nth-child(9n + 1){
       width: 62.5%;
       margin-right: @1-col;
     }
@@ -118,7 +136,7 @@ ul#project-thumbs {
     &:nth-child(9n + 9){
       width: 54.16%;
       margin-right: 0;
-    }
+    }*/
   }
 
 }

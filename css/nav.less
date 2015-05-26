@@ -27,7 +27,10 @@ nav {
     }
 
     ul {
-      display: inline-block;
+      display: block;
+      @media @mq-biggish {
+        display: inline-block;
+      }
       li {
         display: inline-block;
         margin-right: 0.5em;
